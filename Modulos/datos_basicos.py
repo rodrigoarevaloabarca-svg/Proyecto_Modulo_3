@@ -1,4 +1,4 @@
-
+#solicitud y manejo basico de datos
 user = input("Usuario: ").lower().strip()
 password = input("Contraseña: ").lower().strip()
 

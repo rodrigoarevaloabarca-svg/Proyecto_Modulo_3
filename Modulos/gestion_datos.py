@@ -1,3 +1,4 @@
+#estructuras de datos listas tuplas conjuntos diccionarios
 usuario_registrado = {
     "admin" : "123456",
     "invitado" : "123456",

@@ -1,3 +1,4 @@
+#aca se agrupa la logica de las funciones clientes, productos, ventas, reporte y salir del sistema
 from Modulos.validaciones import validar_rut
 from Modulos.gestion_datos import clientes,productos,ventas_realizadas,ventas_canceladas
 from Modulos.datos_basicos import capturar_rut,capturar_email,capturar_texto,capturar_precio,capturar_cantidad,capturar_producto_nombre
@@ -5,6 +6,7 @@ import datetime
 import csv
 import time
 import sys
+
 #gestion clientes
 def ver_lista_clientes():
     print("\n--- Lista de Clientes Registrados ---")

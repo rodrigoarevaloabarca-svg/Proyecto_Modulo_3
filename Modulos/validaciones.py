@@ -1,3 +1,4 @@
+#validaciones basica  rut  logica del login
 from Modulos.gestion_datos import usuario_registrado
 from Modulos.datos_basicos import user, password
 #login

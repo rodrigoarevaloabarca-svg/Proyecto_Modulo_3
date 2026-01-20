@@ -1,3 +1,4 @@
+#En esta seccion agrupe menus sub menus, organizados en diccionarios y bucles while para mantener menus andando
 from Modulos.funciones_utiles import ingresar_cliente,eliminar_cliente,buscar_cliente,ingresar_producto,eliminar_producto,revisar_inventario,ventas,cancelar_venta,resumen_ventas,ver_cancelaciones
 def menu_principal():
     print("=" * 35)
