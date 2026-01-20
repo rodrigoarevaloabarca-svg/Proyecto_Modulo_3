@@ -57,4 +57,4 @@ def capturar_precio():
                 return valor
             print("❌ El precio debe ser mayor a 0.")
         except ValueError:
-            print("❌ Error: Ingrese un precio válido (ej: 1500.50)."
+            print("❌ Error: Ingrese un precio válido (ej: 1500.50).")
