@@ -1,7 +1,9 @@
 import time
-from Modulos.datos_basicos import salir_del_sistema,menu_principal
-from Modulos.gestion_datos import seccion_clientes,seccion_productos,seccion_ventas,exportar_resumen_csv, sistema_login
-
+from Modulos.menu import menu_principal
+from Modulos.menu import seccion_clientes,seccion_productos,seccion_ventas
+from Modulos.validaciones import sistema_login
+from Modulos.funciones_utiles import exportar_resumen_csv,salir_del_sistema
+#sistema gestion incluye autentificacion para acceso
 def iniciar_sesion():
     acceso_concedido = sistema_login()
     if not acceso_concedido:
@@ -15,7 +17,8 @@ def iniciar_sesion():
         "4":exportar_resumen_csv,
         "5": salir_del_sistema
     }
-
+    '''entrada a la funcion principal que nos lleva al menu principal y lo mantiene activo hasta 
+    que el usuario decida salir'''
     while True:
         menu_principal()
         eleccion = input(">> Ingrese el número de su opción: ")
@@ -26,5 +29,6 @@ def iniciar_sesion():
         else:
             print("\n🚫 Opción no válida. Intente con 1, 2, 3 o 4.")
             time.sleep(1)
+
 if __name__ == "__main__":
     iniciar_sesion()

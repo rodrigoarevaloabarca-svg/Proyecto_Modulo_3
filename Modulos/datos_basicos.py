@@ -1,53 +1,60 @@
-import sys
-import time
-# Menus y submenus funcion salir
-def menu_principal():
-    print("=" * 35)
-    print("      🚀 SISTEMA DE GESTIÓN PRO")
-    print("=" * 35)
-    print(f"  {'[1]':<5} 👤 Gestion Clientes")
-    print(f"  {'[2]':<5} 🗑️ Gestion Productos")
-    print(f"  {'[3]':<5} 💰 Ventas")
-    print(f"  {'[4]':<5} 📦 Resumen Diario Exportable")
-    print(f"  {'[5]':<5} 🚪 Salir")
-    print("=" * 35)
 
-def sub_menu_clientes ():
-    print("=" * 35)
-    print("      🚀 CLIENTES")
-    print("=" * 35)
-    print(f"  {'[1]':<5} 👤 Agregar Cliente")
-    print(f"  {'[2]':<5} 🗑️ Quitar Cliente")
-    print(f"  {'[3]':<5} 📦 Buscar Cliente")
-    print(f"  {'[4]':<5} ⬅️ Volver al Menu Principal")
-    print("=" * 35)
+user = input("Usuario: ").lower().strip()
+password = input("Contraseña: ").lower().strip()
 
-def sub_menu_productos():
-    print("=" * 35)
-    print("      🛒 PRODUCTOS")
-    print("=" * 35)
-    print(f"  {'[1]':<5} ✨ Agregar Producto")
-    print(f"  {'[2]':<5} ❌ Quitar Producto")
-    print(f"  {'[3]':<5} 📋 Revisar Inventario")
-    print(f"  {'[4]':<5} ⬅️ Volver al Menu Principal")
-    print("=" * 35)
+def validar_rut(rut):
 
-def sub_menu_ventas():
-    print("=" * 35)
-    print("      🛒 VENTAS")
-    print("=" * 35)
-    print(f"  {'[1]':<5} ➕ Ventas")
-    print(f"  {'[2]':<5} 🚫 cancelar venta")
-    print(f"  {'[3]':<5} 📑 Ventas Realizadas")
-    print(f"  {'[4]':<5} ❌ Ventas Canceladas")
-    print(f"  {'[5]':<5} ⬅️ Volver al Menu Principal")
-    print("=" * 35)
+    largo = len(rut)
+    if 9>= largo >= 8:
+        return True
+    else:
+        return False
 
-def salir_del_sistema():
+def capturar_texto(etiqueta, obligatorio=True):
+    while True:
+        valor = input(f"{etiqueta}: ").strip()
+        if obligatorio and not valor:
+            print("❌ Este campo no puede estar vacío.")
+            continue
+        return valor.lower()
 
-    print("\n👋 ¡Gracias por usar el sistema Gestion Pro!")
-    print("Apagando...")
-    time.sleep(1)
-    sys.exit()
+def capturar_rut():
+    while True:
+        rut = input("RUT (sin puntos ni guion): ").strip().lower()
+        if validar_rut(rut):
+            return rut
+        print("❌ RUT inválido. Debe tener entre 8 y 9 caracteres.")
 
+def capturar_email():
+    while True:
+        email = input("Email: ").strip().lower()
+        if "@" in email and "." in email:
+            return email
+        print("❌ Formato de email inválido (ej: usuario@correo.com).")
 
+def capturar_producto_nombre():
+    while True:
+        nombre = input("Nombre del producto: ").lower().strip()
+        if nombre:
+            return nombre
+        print("❌ El nombre no puede estar vacío.")
+
+def capturar_cantidad():
+    while True:
+        try:
+            valor = int(input("Cantidad del producto: "))
+            if valor >= 0:
+                return valor
+            print("❌ La cantidad no puede ser negativa.")
+        except ValueError:
+            print("❌ Error: Ingrese un número entero válido.")
+
+def capturar_precio():
+    while True:
+        try:
+            valor = float(input("Precio del producto: "))
+            if valor > 0:
+                return valor
+            print("❌ El precio debe ser mayor a 0.")
+        except ValueError:
+            print("❌ Error: Ingrese un precio válido (ej: 1500.50)."
